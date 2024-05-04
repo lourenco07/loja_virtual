@@ -3,7 +3,6 @@ package com.loja.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,28 +11,22 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-
-
-
-
-
 @Entity
-@Table(name = "marca_produto")
-@SequenceGenerator(name = "seq_marca_produto", sequenceName = "seq_marca_produto", allocationSize = 1, initialValue = 1)
-public class MarcaProduto implements Serializable {
-	private static final long serialVersionUID = 1L;
+@Table(name = "categoria_produto")
+@SequenceGenerator(name = "seq_categoria_produto", sequenceName = "seq_categoria_produto", allocationSize = 1, initialValue = 1)
+public class CategoriaProduto implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_marca_produto")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "seq_categoria_produto")
 	private long id;
+	
 	@Column(nullable = false)
 	private String nomeDesc;
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -42,22 +35,18 @@ public class MarcaProduto implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MarcaProduto other = (MarcaProduto) obj;
+		CategoriaProduto other = (CategoriaProduto) obj;
 		return id == other.id;
 	}
-
 	public long getId() {
 		return id;
 	}
-
 	public void setId(long id) {
 		this.id = id;
 	}
-
 	public String getNomeDesc() {
 		return nomeDesc;
 	}
-
 	public void setNomeDesc(String nomeDesc) {
 		this.nomeDesc = nomeDesc;
 	}
